@@ -72,7 +72,7 @@ public class StoryController {
             @RequestParam(required = false) String season) {
         Set<Story> storySet = new HashSet<>();
         if(query != null){
-            if(latitude != null && longitude != null && (radius != null || radius != 0)){
+            if(latitude != null && longitude != null && (radius != null && radius != 0)){
                 storySet.addAll(storyService.searchStoriesWithLocation(query,radius,latitude,longitude));
             }else if(!query.equalsIgnoreCase("")){
                 storySet.addAll(storyService.searchStoriesWithQuery(query));
